@@ -1,0 +1,419 @@
+{
+  "requirements": {
+    "1": {
+      "definition": "Students should apply for admission into the university on the platform.",
+      "sources": "Mission and Policies",
+      "dimensions": "Organisation and Governance",
+      "processes": [
+        "A system of interaction between the applicant and the user needs to be implemented",
+        "An account needs to be assigned to a user in order to store the information provided during the interaction",
+        "The student enters information as required by the platform",
+        "Upload of the applicant to the applicants list of the university"
+      ],
+      "structures": [
+        "The admission department",
+        "The admission list of the university"
+      ],
+      "constraints": [
+        "The platform not being on an online server",
+        "The user not entering input as required by the platform",
+        "The database for storing applicants' information being limited"
+      ],
+      "links": {
+        "constraint": ["P1.1-c->P1.2"],
+        "implementaion": ["P1.2-i->P1.1"],
+        "association": ["P1.1<-a->P2.1"]
+      },
+      "id": 1
+    },
+    "2": {
+      "Definition": "All admitted students should each login to their individual student accounts on the platform.",
+      "sources": "Change Audits",
+      "dimensions": "Information",
+      "processes": [
+        "A user interface needs to be implemented to enable students login with their credentials",
+        "A database to store student's information is to be implemented.",
+        "Security measures need to be implemented  in that system.",
+        "Inorder to implement this security measures unique identifiers such as matricule numbers should be used"
+      ],
+      "structures": ["Student database"],
+      "constraints": [
+        "Students not having credentials",
+        "The system failing in the process of credential entry",
+        "Student mishandling the system by entering wrong matricule number or password"
+      ],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P1.1<-a->P2.1"]
+      },
+      "id": 2
+    },
+    "3": {
+      "definition": "The platform should generate fee payment receipts for the students when needed.",
+      "sources": "Basic Nature",
+      "dimensions": "Business Processes",
+      "processes": [
+        "An option, button or link for fee payment receipts generation could be added to the fee payment page or submenu",
+        "The format of the receipts defined by the system"
+      ],
+      "structures": ["System Administrator", "Transaction manager"],
+      "constraints": ["No fee payment record system", "Student not paying fee"],
+      "links": {
+        "constraint": ["P7.1-c->P3.1"],
+        "implementaion": ["P3.1-i->P7.1"],
+        "association": ["P3.1<-a->P5.1"]
+      },
+      "id": 3
+    },
+    "4": {
+      "definition": "Course registration should be done on the platform.",
+      "sources": "Business Issues",
+      "dimensions": "Business Processes",
+      "processes": [
+        "An option course registration menu needs to be added to the platform",
+        "In this menu, all courses offered in the university need to be available in it",
+        "Options to register major, minor, elective and university required courses need to be added",
+        "A save option needs to be added in order to save the selections made by the user"
+      ],
+      "structures": ["Course management system", "List of courses registered"],
+      "constraints": [],
+      "links": {
+        "constraint": ["P4.1-c->P4.2"],
+        "implementaion": ["P4.2-i->P4.1"],
+        "association": ["P5.1<-a->P4.3", "P4.3<-a->P6.2"]
+      },
+
+      "id": 4
+    },
+    "5": {
+      "Definition": "Forms of registered courses should be generated on the platform when needed.",
+      "sources": "Basic Nature",
+      "dimensions": "Business Processes",
+      "processes": [
+        "An option to obtain the list of courses registered by the student needs to be added",
+        "The format of the list obtained is to be defined by the paltform"
+      ],
+      "structures": [
+        "System Administrator",
+        "Course manager",
+        "Database of courses"
+      ],
+      "Constraints": [],
+      "links": {
+        "constraint": ["P10.1-c->P5.1"],
+        "implementaion": ["P5.1-i->P10.1"],
+        "association": ["P3.1<-a->P5.1"]
+      },
+      "id": 5
+    },
+    "6": {
+      "definition": "CA and final results should be obtained on the platform.",
+      "sources": "Basic Nature",
+      "dimensions": "Information",
+      "processes": [
+        "Menu's to obtain CA and Final results need to be added to the platform",
+        "In this menus options to select the academic year whose results he wants to obtain is added"
+      ],
+      "structures": [
+        "Marks database",
+        "Course manager",
+        "Database of courses",
+        "List of registered courses"
+      ],
+      "constraints": [
+        "Course not registered",
+        "Course marks not available on platform"
+      ],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": []
+      },
+      "id": 6
+    },
+    "7": {
+      "Definition": [
+        "Admitted students should pay their fees from wherever they are through Mobile money or UBA visa cards on the platform."
+      ],
+      "sources": "Business Issues",
+      "dimensions": "Business Processes",
+      "processes": [
+        "A fee payment menu should be included in the platform.",
+        "In this menu options to choose the payment mode, amount and account details have to be included.. "
+      ],
+      "structures": ["Fee Management service", "Transaction service"],
+      "constraints": [
+        "Student not having the payment media on the platform",
+        "No network in student's location"
+      ],
+      "links": {
+        "constraint": ["P7.1-c->P3.1"],
+        "implementaion": ["P3.1-i->P7.1"],
+        "association": ["P3.1<-a->P5.1"]
+      },
+      "id": 7
+    },
+    "8": {
+      "definition": "Generate list and statistics of students following given metrics when needed",
+      "sources": "Technology",
+      "dimensions": "Technology",
+      "processes": [
+        "A submenu option to obtain student's statistics has to be added to the platform",
+        "Select options to choose the academic year needs to be included"
+      ],
+      "structures": ["Admissions service", "Admissions database"],
+      "constraints": ["No students admitted in the selected department"],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P8.1<-a->P16.1"]
+      },
+      "id": 8
+    },
+    "9": {
+      "definition": "Programs offered by the university should be available on the platform.",
+      "sources": "Technology",
+      "dimensions": "Organisation and Governance",
+      "processes": [
+        "A option to view all available programs in the university needs to be added to the platform",
+        "Submenu options need to be added to structure the available programs"
+      ],
+      "structures": ["Course manager", "Course database"],
+      "constraints": [
+        "Non availability of all available programs at the level of university administration"
+      ],
+      "links": {
+        "constraint": ["P9.1-c->P9.2"],
+        "implementaion": ["P9.2-i->P9.1"],
+        "association": ["P7.1<-a->P9.1", "P9.1<-a->P10.1"]
+      },
+      "id": 9
+    },
+    "10": {
+      "definition": "Registration for resit exams should be done on the platform",
+      "sources": "Business Issues",
+      "dimensions": "Business Processes",
+      "processes": [
+        "A menu for course registration needs to be created",
+        "In this menu must be an option to select the semester whose courses are to be registered",
+        "This list of semester must include first, second and resit semesters",
+        "The menu should also indicate the courses available for each semester"
+      ],
+      "structures": ["Course manager", "Student records database"],
+      "constraints": [""],
+      "links": {
+        "constraint": ["P10.1-c->P5.1", "P10.4-c->P10.3"],
+        "implementaion": ["P5.1-i->P10.1", "P10.3-i->P10.4"],
+        "association": [
+          "P9.1<-a->P10.1",
+          "P10.1<-a->P11.1",
+          "P7.2<-a->P10.4",
+          "P10.4<-a->P13.2"
+        ]
+      },
+
+      "id": 10
+    },
+    "11": {
+      "definition": "E-learning module available on the platform.",
+      "sources": "Organisation and Governance",
+      "dimensions": "Technology",
+      "processes": [
+        "An E-learning module menu is to included as one of the menu options"
+      ],
+      "structures": ["Administration", "IT Center"],
+      "constraints": [" "],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P10.1<-a->P11.1", "P11.1<-a->P13.1"]
+      },
+      "id": 11
+    },
+    "12": {
+      "definition": "Deadlines for fee payment and course registration should be indicated on the platform.",
+      "sources": "Basic Nature",
+      "dimensions": "Technology",
+      "processes": [
+        "A notification indicating the deadline for fee payments and course registration needs to be added to the paltform and made visible to the user"
+      ],
+      "structures": ["System Administrators"],
+      "constraints": [" "],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": []
+      },
+      "id": 12
+    },
+    "13": {
+      "definition": "Lecturers should be able to upload CA marks on the platform",
+      "sources": "Business Issues",
+      "dimensions": "People",
+      "processes": [
+        "A menu for course management needs to be included",
+        "A menu with submenu's one of which is CA marks upload",
+        "A submenu with options to upload each student's CA mark"
+      ],
+      "structures": [
+        "Student's Database",
+        "Course Database",
+        "Courses registered",
+        "List of courses taught by lecturer"
+      ],
+      "constraints": ["List of students who registered not available"],
+      "links": {
+        "constraint": ["13.1-c->P13.2", "P13.2-c->P13.3"],
+        "implementaion": ["13.2-i->P13.1", "P13.3-i->P13.2"],
+        "association": [
+          "P13.3<-a->P14.2",
+          "P13.1<-a->P15.1",
+          "P10.4<-a->P13.2",
+          "P13.2<-a->P13.3",
+          "P11.1<-a->P13.1"
+        ]
+      },
+      "id": 13
+    },
+    "14": {
+      "definition": "Lecturers should be able to upload exam marks on the platform",
+      "sources": "Business Issues",
+      "dimensions": "People",
+      "processes": [
+        "A menu for course management needs to be included",
+        "A menu with submenu's one of which is Exam marks upload",
+        "A submenu with options to upload each student's Exam mark"
+      ],
+      "structures": [
+        "Student's Database",
+        "Course Database",
+        "Courses registered",
+        "List of courses taught by lecturer"
+      ],
+      "constraints": ["List of students who registered not available"],
+      "links": {
+        "constraint": ["P14.1-C->P14.2", "P14.2-c->P14.3"],
+        "implementaion": ["P14.2-i->P14.1", "P14.3-i->P14.2"],
+        "association": ["P13.3<-a->P14.2"]
+      },
+      "id": 14
+    },
+    "15": {
+      "definition": "Lecturers should be able to view the students who registered a course",
+      "sources": "Change Audits",
+      "dimensions": "Information",
+      "processes": [
+        "A submenu named course list should be included in the course management menu",
+        "This sub menu should contain the matriclue of students who registered a course taught by the lecturer"
+      ],
+      "structures": [
+        "Student's Database",
+        "Course Database",
+        "Courses registered",
+        "List of courses taught by lecturer"
+      ],
+      "constraints": ["Lecturer must be logged in account"],
+      "links": {
+        "constraint": ["P15.1-c->P15.2"],
+        "implementaion": ["P15.2-i->15.1"],
+        "association": ["P13.1<-a->P15.1", "P15.1<-a->P19.1"]
+      },
+      "id": 15
+    },
+    "16": {
+      "definition": "A list of lecturers teaching a course.",
+      "sources": "Business Issues",
+      "dimensions": "People",
+      "processes": [
+        "Adding an option to view lecturer under course registration."
+      ],
+      "structures": [""],
+      "constraints": [""],
+      "links": {
+        "constraint": ["P10.1-c->P16.1"],
+        "implementaion": ["P16.1-i->P10.1"],
+        "association": ["P8.1<-a->P16.1", "P16.1<-a->P18.1"]
+      },
+      "id": 16
+    },
+    "17": {
+      "definition": "Lecturers should upload resit marks on the platform",
+      "sources": "Business Issues",
+      "dimensions": "People",
+      "processes": [
+        "Security measures needs to be included in accessing the page such as usernames and passwords",
+        "A menu for course management needs to be included",
+        "This menu should contain submenu's one of which could be Resit Exam marks upload",
+        "This submenu should contain option to upload each student's Resit Exam mark"
+      ],
+      "structures": [
+        "Student's Database",
+        "Course Database",
+        "Courses registered",
+        "List of courses taught by lecturer"
+      ],
+      "constraints": [],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P8.1<-a->P16.1"]
+      },
+      "id": 17
+    },
+    "18": {
+      "definition": "Course outline for each course should be available on the platform",
+      "sources": "Business Issues",
+      "dimensions": "Business Processes, Technology",
+      "processes": [
+        "Adding an option to display the course outline under each course "
+      ],
+      "structures": [""],
+      "constraints": [
+        "18.1 : Course outline not available at the level of the department"
+      ],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P16.1<-a->P18.1", "P18.1<-a->P20.1"]
+      },
+      "id": 18
+    },
+    "19": {
+      "definition": "lecturers need to be able to login in their lecturer's accounts",
+      "sources": "Basic Nature",
+      "dimensions": "Technology",
+      "processes": [
+        "Lecturer's login page needs to be included on the platform",
+        "Security measures needs to be included in accessing the page such as usernames and passwords"
+      ],
+      "structures": [""],
+      "constraints": [
+        "Non availability of login credentials",
+        "Entry of wrong credentials"
+      ],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P15.1<-a->P19.1"]
+      },
+      "id": 19
+    },
+    "20": {
+      "definition": "Medical examination validation at the health centre should be available on the platform",
+      "sources": "Technology",
+      "dimensions": "Information",
+      "processes": [
+        "A notification indicating the completion of medical examinations should be available on the platform"
+      ],
+      "structures": ["The platform login page"],
+      "constraints": [""],
+      "links": {
+        "constraint": [],
+        "implementaion": [],
+        "association": ["P18.1<-a->P20.1"]
+      },
+      "id": 20
+    }
+  }
+}
